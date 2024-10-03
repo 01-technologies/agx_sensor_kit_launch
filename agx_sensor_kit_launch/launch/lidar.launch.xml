@@ -3,7 +3,7 @@
   <arg name="host_ip" default="192.168.1.10"/>
   <arg name="use_concat_filter" default="true"/>
   <arg name="vehicle_id" default="$(env VEHICLE_ID default)"/>
-  <arg name="vehicle_mirror_param_file"/>
+  <!-- <arg name="vehicle_mirror_param_file"/> -->
   <arg name="pointcloud_container_name" default="pointcloud_container"/>
 
   <group>
@@ -12,11 +12,11 @@
     <group>
       <push-ros-namespace namespace="top"/>
       <!-- <include file="$(find-pkg-share common_sensor_launch)/launch/velodyne_VLP16.launch.xml"> -->
-      <include file="$(find-pkg-share livox_ros_driver2)/launch/msg_MID360_launch.py">
+      <include file="$(find-pkg-share livox_ros_driver2)/launch_ROS2/autoware_mid360.launch.py">
       </include>
     </group>
 
-    <include file="$(find-pkg-share sample_sensor_kit_launch)/launch/pointcloud_preprocessor.launch.py">
+    <include file="$(find-pkg-share agx_sensor_kit_launch)/launch/pointcloud_preprocessor.launch.py">
       <arg name="base_frame" value="base_link"/>
       <arg name="use_intra_process" value="true"/>
       <arg name="use_multithread" value="true"/>
